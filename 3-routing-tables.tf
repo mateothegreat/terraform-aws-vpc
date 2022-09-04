@@ -14,7 +14,7 @@ resource "aws_route" "nat" {
 
     route_table_id         = aws_route_table.public.id
     destination_cidr_block = "0.0.0.0/0"
-    gateway_id             = aws_nat_gateway.this[ 0 ].id
+    nat_gateway_id         = aws_nat_gateway.this[ 0 ].id
 
 }
 
