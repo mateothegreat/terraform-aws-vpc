@@ -5,7 +5,7 @@ resource "aws_route_table" "public" {
     route {
 
         cidr_block = "0.0.0.0/0"
-        gateway_id = aws_internet_gateway.this.id
+        gateway_id = aws_nat_gateway.this[ 0 ].id
 
     }
 
@@ -39,11 +39,11 @@ resource "aws_route_table" "public" {
 resource "aws_default_route_table" "this" {
 
     default_route_table_id = aws_vpc.this.default_route_table_id
+    gateway_id             = aws_internet_gateway.this.id
 
     route {
 
         cidr_block = "0.0.0.0/0"
-        gateway_id = aws_nat_gateway.this[ 0 ].id
 
     }
 
