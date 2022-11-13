@@ -12,8 +12,10 @@ resource "aws_internet_gateway" "this" {
 
 resource "aws_eip" "nat" {
 
+    count = var.enable_nat_gateway ? 1 : 0
+
     vpc = true
-    
+
     tags = {
 
         Name = "${ var.name }-nat-1"
