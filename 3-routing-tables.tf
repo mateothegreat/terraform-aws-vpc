@@ -12,6 +12,8 @@ resource "aws_route_table" "public" {
 
 resource "aws_route" "nat" {
 
+    count = var.enable_nat_gateway ? 1 : 0
+    
     route_table_id         = aws_route_table.public.id
     destination_cidr_block = "0.0.0.0/0"
     nat_gateway_id         = aws_nat_gateway.this[ 0 ].id
