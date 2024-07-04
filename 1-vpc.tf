@@ -1,14 +1,14 @@
 resource "aws_vpc" "this" {
 
-    cidr_block = var.cidr
+  cidr_block = var.cidr
 
-    enable_dns_hostnames = true
-    enable_dns_support   = true
+  enable_dns_hostnames = true
+  enable_dns_support   = true
 
-    tags = {
+  tags = {
 
-        Name = var.name
+    Name = var.name
 
-    }
+  }
 
 }
